@@ -1,0 +1,32 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables
+.env
+.env.*
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Mypy / type check
+.mypy_cache/
+
+# pip
+pip-wheel-metadata/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# FAISS index (large binary)
+faiss_index/
+faiss_index/*.faiss
