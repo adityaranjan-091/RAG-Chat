@@ -3,23 +3,26 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-
 # Virtual environments
 venv/
 env/
 ENV/
 .venv/
 
-# Environment variables
+# Environment variables (contains API keys)
 .env
 .env.*
 
 # IDEs and editors
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
-# Mypy / type check
+# Type checking
 .mypy_cache/
+.pytype/
 
 # pip
 pip-wheel-metadata/
@@ -27,6 +30,27 @@ pip-wheel-metadata/
 # Jupyter
 .ipynb_checkpoints/
 
-# FAISS index (large binary)
+# ChromaDB local persistence (generated at runtime)
+chroma_db/
+
+# FAISS index
 faiss_index/
-faiss_index/*.faiss
+
+# Sentence-transformers model cache
+.cache/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Temp / upload files
+*.tmp
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Test PDFs (optional — remove this line if you want to include sample PDFs)
+*.pdf
