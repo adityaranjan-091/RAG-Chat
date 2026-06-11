@@ -5,7 +5,7 @@ import uuid
 from datetime import datetime
 
 st.set_page_config(
-    page_title="RAG Chatbot",
+    page_title="RAG Chat",
     page_icon="https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/robot_2/default/24px.svg",
     layout="wide",
 )
@@ -703,38 +703,7 @@ else:
         f"  <strong>System Ready:</strong> <em>{doc_name}</em> is loaded. Ask questions below."
         "</div>",
         unsafe_allow_html=True,
-    )
-
-if not conv["messages"]:
-    st.markdown(
-        '<div class="empty-state">'
-        '  <div class="empty-icon">💬</div>'
-        '  <div class="empty-title">Ready to Explore</div>'
-        '  <div class="empty-sub">'
-        "    No conversation history yet. Once your document is loaded, ask anything using the input below, "
-        "    or choose one of these suggested queries to start exploring:"
-        "  </div>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
-
-    if conv["chain"] is not None:
-        st.markdown('<div class="suggestions-header">Suggested Questions</div>', unsafe_allow_html=True)
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button("📋 Summarize main points of the document", key="s_1", use_container_width=True):
-                st.session_state.pending_prompt = "Summarize the main points of this document."
-                st.rerun()
-            if st.button("🔍 What are the key findings?", key="s_2", use_container_width=True):
-                st.session_state.pending_prompt = "What are the key findings or recommendations?"
-                st.rerun()
-        with col2:
-            if st.button("⚠️ Identify potential risks/limitations", key="s_3", use_container_width=True):
-                st.session_state.pending_prompt = "Identify any potential risks or limitations mentioned."
-                st.rerun()
-            if st.button("📝 Create action items from content", key="s_4", use_container_width=True):
-                st.session_state.pending_prompt = "Create a list of action items based on this text."
-                st.rerun()
+    )    
 
 # Render existing chat messages for this conversation
 for msg in conv["messages"]:
